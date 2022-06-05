@@ -24,3 +24,8 @@ const search = (name) => {
 };
 
 console.log(search('ti'));
+
+// [
+//     { id: 10, name: 'Tiago' },
+//     { id: 30, name: 'Leticia' }
+// ]

@@ -6,9 +6,11 @@ const gamers = [
     { name: 'Quirina', idade: 54 },
 ];
 
-const gamersx = gamers.filter(({ name }) => name.toLocaleLowerCase().endsWith('a'));
+const gamersFiltereds = gamers.filter(({ name }) =>
+    name.toLocaleLowerCase().endsWith('a')
+);
 
-console.log(gamersx);
+console.log(gamersFiltereds);
 
 // [
 //  { name: 'Jéssica', idade: 17 },
