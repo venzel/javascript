@@ -2,7 +2,7 @@
  * @author Enéas Almeida <eneas.eng@yahoo.com>
  */
 
-const filterFieldsObject = (objctToFilter = {}, arrayFields = []) => {
+const filterPropertiesInArrayObjects = (objctToFilter = {}, arrayProperties = []) => {
     const contains = (target, pattern) => {
         let value = 0;
 
@@ -13,12 +13,12 @@ const filterFieldsObject = (objctToFilter = {}, arrayFields = []) => {
         return value === 1;
     };
 
-    const filterFields = (obj) =>
+    const filterProperties = (obj) =>
         Object.keys(obj)
-            .filter((key) => contains(key, arrayFields))
+            .filter((key) => contains(key, arrayProperties))
             .reduce((current, key) => Object.assign(current, { [key]: obj[key] }), {});
 
-    return objctToFilter.map((e) => filterFields(e));
+    return objctToFilter.map((e) => filterProperties(e));
 };
 
 const object = [
@@ -27,9 +27,9 @@ const object = [
     { name: 'Vanessa', admin: 'Venzel', age: 38 },
 ];
 
-const fields = ['name', 'age'];
+const properties = ['name', 'age'];
 
-const objectFiltered = filterFieldsObject(object, fields);
+const objectFiltered = filterPropertiesInArrayObjects(object, properties);
 
 console.log(objectFiltered);
 
