@@ -1,3 +1,13 @@
+/**
+ * @author Enéas Almeida <eneas.eng@yahoo.com>
+ */
+
+const filterUsers = (roles) => {
+    return users.filter((user) => {
+        return roles.includes(user.role);
+    });
+};
+
 const rolesGeral = ['admin', 'coordenador', 'supervisor'];
 
 const users = [
@@ -22,12 +32,6 @@ const users = [
         role: 'coordenador',
     },
 ];
-
-const filterUsers = (roles) => {
-    return users.filter((user) => {
-        return roles.includes(user.role);
-    });
-};
 
 console.log(filterUsers(rolesGeral));
 

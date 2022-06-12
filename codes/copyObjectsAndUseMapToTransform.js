@@ -1,3 +1,19 @@
+/**
+ * @author Enéas Almeida <eneas.eng@yahoo.com>
+ */
+
+const userTransform = (listUsers) => {
+    // const copyUsers = users.map(user => Object.assign({}, user));
+
+    const copyUsers = listUsers.map((user) => ({ ...user }));
+
+    copyUsers.map((user) => {
+        user.name = user.name.toUpperCase();
+    });
+
+    return copyUsers;
+};
+
 const users = [
     {
         id: 10,
@@ -16,18 +32,6 @@ const users = [
         name: 'Jose',
     },
 ];
-
-const userTransform = (listUsers) => {
-    // const copyUsers = users.map(user => Object.assign({}, user));
-
-    const copyUsers = listUsers.map((user) => ({ ...user }));
-
-    copyUsers.map((user) => {
-        user.name = user.name.toUpperCase();
-    });
-
-    return copyUsers;
-};
 
 console.log(userTransform(users));
 

@@ -1,3 +1,11 @@
+/**
+ * @author Enéas Almeida <eneas.eng@yahoo.com>
+ */
+
+const gamersFiltereds = gamers.filter(({ name }) =>
+    name.toLocaleLowerCase().endsWith('a')
+);
+
 const gamers = [
     { name: 'Alex', idade: 11 },
     { name: 'Digo', idade: 41 },
@@ -5,10 +13,6 @@ const gamers = [
     { name: 'Marcos', idade: 15 },
     { name: 'Quirina', idade: 54 },
 ];
-
-const gamersFiltereds = gamers.filter(({ name }) =>
-    name.toLocaleLowerCase().endsWith('a')
-);
 
 console.log(gamersFiltereds);
 

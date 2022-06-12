@@ -1,3 +1,7 @@
+/**
+ * @author Enéas Almeida <eneas.eng@yahoo.com>
+ */
+
 const execute = (valueEnum) => {
     const executeDog = (value) => console.log(value + 'auu');
     const executeCat = (value) => console.log(value + 'miau');

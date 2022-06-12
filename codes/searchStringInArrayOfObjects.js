@@ -1,3 +1,13 @@
+/**
+ * @author Enéas Almeida <eneas.eng@yahoo.com>
+ */
+
+const search = (name) => {
+    return users.filter((user) => {
+        return user.name.toLowerCase().trim().search(name.toLowerCase().trim()) !== -1;
+    });
+};
+
 const users = [
     {
         id: 10,
@@ -16,12 +26,6 @@ const users = [
         name: 'Jose',
     },
 ];
-
-const search = (name) => {
-    return users.filter((user) => {
-        return user.name.toLowerCase().trim().search(name.toLowerCase().trim()) !== -1;
-    });
-};
 
 console.log(search('ti'));
 

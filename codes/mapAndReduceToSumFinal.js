@@ -1,3 +1,7 @@
+/**
+ * @author Enéas Almeida <eneas.eng@yahoo.com>
+ */
+
 const gamers = [
     { name: 'A', metrics: 8.0 },
     { name: 'B', metrics: 8.0 },
