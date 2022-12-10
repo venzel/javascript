@@ -1,12 +1,15 @@
 const sinon = require('sinon');
+const { deepStrictEqual } = require('assert');
 const Service = require('./Service');
 
-const BASE_URL_1 = 'https://swapi.dev/api/planets/1/';
-const BASE_URL_2 = 'https://swapi.dev/api/planets/2/';
+const apiUrl = {
+    TATOOINE: 'https://swapi.dev/api/planets/1/',
+    ALDERAAN: 'https://swapi.dev/api/planets/2/',
+};
 
 const mocks = {
-    tatooine: require('./mocks/tatooine.json'),
-    alderaan: require('./mocks/alderaan.json'),
+    TATOOINE: require('./mocks/tatooine.json'),
+    ALDERAAN: require('./mocks/alderaan.json'),
 };
 
 (async () => {
@@ -14,17 +17,32 @@ const mocks = {
 
     const stub = sinon.stub(service, service.makeRequest.name);
 
-    stub.withArgs(BASE_URL_1).resolves(mocks.tatooine);
+    stub.withArgs(apiUrl.TATOOINE).resolves(mocks.TATOOINE);
+    stub.withArgs(apiUrl.ALDERAAN).resolves(mocks.ALDERAAN);
 
-    stub.withArgs(BASE_URL_2).resolves(mocks.alderaan);
-
+    // Test 1
     {
-        let response = await service.makeRequest(BASE_URL_1);
+        const expected = {
+            name: 'Tatooine',
+            diameter: '10465',
+            climate: 'arid',
+        };
 
-        console.log(response);
+        const results = await service.getPlanets(apiUrl.TATOOINE);
 
-        response = await service.makeRequest(BASE_URL_2);
+        deepStrictEqual(results, expected);
+    }
 
-        console.log(response);
+    // Test 2
+    {
+        const expected = {
+            name: 'Alderaan',
+            diameter: '12500',
+            climate: 'temperate',
+        };
+
+        const results = await service.getPlanets(apiUrl.ALDERAAN);
+
+        deepStrictEqual(results, expected);
     }
 })();

@@ -9,6 +9,16 @@ class Service {
             });
         });
     }
+
+    async getPlanets(url) {
+        const { name, diameter, climate } = await this.makeRequest(url);
+
+        return {
+            name,
+            diameter,
+            climate,
+        };
+    }
 }
 
 module.exports = Service;
